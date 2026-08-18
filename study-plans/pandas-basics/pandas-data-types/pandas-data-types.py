@@ -6,9 +6,7 @@ def data_types_overview(data):
     """
     df = pd.DataFrame(data)
     dtypes = df.dtypes.astype(str).to_dict()
-    type_counts = {}
-    for typ in dtypes.values():
-        type_counts[typ] = type_counts.get(typ, 0) + 1
+    type_counts = df.dtypes.astype(str).value_counts().to_dict()
     return {
         "dtypes": dtypes,
         "type_counts": type_counts,
