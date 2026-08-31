@@ -6,7 +6,8 @@ def activate(x, method="relu"):
     """
     x = torch.tensor(x, dtype=torch.float32)
     if method == "relu":
-        res = torch.clamp(x, min=0)
+        # res = torch.clamp(x, min=0)
+        res = torch.nn.functional.relu(x)
     elif method == "sigmoid":
         # res = 1.0 / (1.0 + torch.exp(-x))
         res = torch.nn.functional.sigmoid(x)
