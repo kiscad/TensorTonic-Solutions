@@ -16,5 +16,6 @@ def activate(x, method="relu"):
         res = torch.tanh(x)
     elif method == "leaky_relu":
         res = torch.where(x>0, x, 0.01*x)
+        res = torch.nn.functional.leaky_relu(x)
 
     return res.tolist()
